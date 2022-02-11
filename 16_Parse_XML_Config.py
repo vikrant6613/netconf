@@ -19,6 +19,6 @@ root = tree.getroot()
 
 num = int(input("enter the interface number : "))
 num = num - 1
-int_number = list(root)[0][0][num][0][0].text
-ip_number = list(root)[0][0][num][0][2][0][0][0].text
+int_number = list(root)[0][0][0][num][0].text
+ip_number = list(root)[0][0][0][num][2][0][0][0].text
 print(f"GigabitEthernet {int_number} : {ip_number}")

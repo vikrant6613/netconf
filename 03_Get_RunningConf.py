@@ -1,14 +1,10 @@
 from ncclient import manager
+import json
 
-host = "10.10.20.48"
-port = "830"
-username = "developer"
-password = "C1sco12345"
+device_cred = json.loads(open("device_login.json").read())
 
-with manager.connect(host=host, port=port, username=username,
-                     password=password, hostkey_verify=False) as man:
-
-    man.connected
+with manager.connect(host=device_cred["host"], username=device_cred["username"],
+                     password=device_cred["password"], port="830", hostkey_verify=False) as man:
 
     running_conf = man.get_config("running")
     print(running_conf)

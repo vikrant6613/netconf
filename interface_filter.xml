@@ -1,0 +1,6 @@
+<filter xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <interfaces  xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+	</interfaces>
+	<interfaces-state xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+	</interfaces-state>
+</filter>

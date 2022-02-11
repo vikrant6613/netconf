@@ -1,21 +1,17 @@
 from ncclient import manager
+import json
 
-host = "10.10.20.48"
-port = "830"
-username = "developer"
-password = "C1sco12345"
+configuration_filter = """
+<config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+        <hostname>csr1000v-1-test</hostname>
+    </native>
+</config>"""
 
-with manager.connect(host=host, port=port, username=username,
-                     password=password, hostkey_verify=False) as man:
+device_cred = json.loads(open("device_login.json").read())
 
-    man.connected
-
-    configuration_filter = """
-    <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
-        <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
-            <hostname>csr1000v-1-test</hostname>
-        </native>
-    </config>"""
+with manager.connect(host=device_cred["host"], username=device_cred["username"],
+                     password=device_cred["password"], port="830", hostkey_verify=False) as man:
 
     conf_output = man.edit_config(configuration_filter, target="running")
     print(conf_output)
