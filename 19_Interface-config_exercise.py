@@ -32,7 +32,6 @@ def int_configuration(man, interface_filter):
         print(f"Packets Output: {int_state[i]['statistics']['out-unicast-pkts']}")
         print("----------------------------------------------")
 
-
 if __name__ == '__main__':
     # pulling devices and credential details from device_login.json file
     device_cred = json.loads(open("device_login.json").read())
