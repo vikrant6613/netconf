@@ -1,4 +1,3 @@
-from pprint import pprint
 from ncclient import manager
 import xmltodict
 import json
@@ -7,12 +6,9 @@ import json
 def int_configuration(man, interface_filter):
     # print(man.connected)
     device_conf = man.get(interface_filter)
-    # pprint(device_conf)
     interfaces_details = xmltodict.parse(device_conf.xml)["rpc-reply"]["data"]
     int_config = interfaces_details["interfaces"]["interface"]
     int_state = interfaces_details["interfaces-state"]["interface"]
-    # pprint(int_config)
-    # pprint(int_state)
 
     print("\nBelow are the Interfaces details : \n")
 
