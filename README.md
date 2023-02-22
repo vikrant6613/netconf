@@ -1,6 +1,8 @@
 <h1 align="center">Netconf</h1>
+<hr>
 <h2 align="center">Netconf programs using python</h3>
 
+<hr>
 
 <h3 align="center">Python version 3.6.5</h2>
 
